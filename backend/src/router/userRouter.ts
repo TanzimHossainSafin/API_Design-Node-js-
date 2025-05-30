@@ -1,0 +1,13 @@
+import { Router } from 'express';
+import { signup } from '../handlers/user/signup';
+import { login } from '../handlers/user/login';
+import { getuser } from '../handlers/user/getUser';
+import { updateuser } from '../handlers/user/updateUser';
+import { deleteuser } from '../handlers/user/deleteUser';
+const userRouter = Router();
+userRouter.post("/signup", signup);
+userRouter.post("/login", login);
+userRouter.get("/get-user", getuser);
+userRouter.put("/update-user", updateuser);
+userRouter.delete("/delete-user", deleteuser);
+export default userRouter;
