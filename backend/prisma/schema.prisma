@@ -17,31 +17,31 @@ model user{
   id String @id  @default(uuid())
   username String 
   email String @unique
-  password String @unique
+  password String 
   restuaurant_visited restaurant []
   updateUserProfile updateuser[]
-  reviews  review[]  @relation("UserReviews")
+  reviews  review[]  
 }
 model restaurant{
  id String @id @default(uuid())
  name String 
  location String
- restaurant_visited_by_user user @relation(fields: [userId],references: [id])
+ restaurant_visited_by_user user @relation(fields: [userId],references: [id],onDelete:Cascade)
  userId String
  reviews review[]
 }
 model updateuser {
   id        String @id @default(uuid())
   userId    String
-  user      user   @relation(fields: [userId], references: [id])
+  user      user   @relation(fields: [userId], references: [id],onDelete:Cascade)
   email     String @unique
   password  String
 }
 model review{
   id String @id @default(uuid())
-  rating Int 
   comment String
-  reviewedByUser user[]  @relation("UserReviews")
+  reviewedByUser user @relation(fields: [userId],references: [id],onDelete:Cascade)
+  userId String
   restaurantId String
-  restaurant restaurant @relation(fields: [restaurantId], references: [id])
+  restaurant restaurant @relation(fields: [restaurantId], references: [id],onDelete:Cascade)
 }
