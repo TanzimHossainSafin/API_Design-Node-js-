@@ -38,7 +38,7 @@ export const protect =  (req, res, next) => {
 
   if (!token) {
     res.status(401)
-    res.json({message: 'not valid token'})
+    res.json({message: 'not valid token or not authorized'})
     return
   }
 

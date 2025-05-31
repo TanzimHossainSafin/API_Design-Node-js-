@@ -19,7 +19,6 @@ model user{
   email String @unique
   password String 
   restuaurant_visited restaurant []
-  updateUserProfile updateuser[]
   reviews  review[]  
 }
 model restaurant{
@@ -29,13 +28,6 @@ model restaurant{
  restaurant_visited_by_user user @relation(fields: [userId],references: [id],onDelete:Cascade)
  userId String
  reviews review[]
-}
-model updateuser {
-  id        String @id @default(uuid())
-  userId    String
-  user      user   @relation(fields: [userId], references: [id],onDelete:Cascade)
-  email     String @unique
-  password  String
 }
 model review{
   id String @id @default(uuid())
