@@ -3,7 +3,9 @@ import {useState} from 'react';
 export default function Restaurant() {
     const [rest,setRest]=useState('');
     const [status,setStatus]=useState('');
+    const [loading,setLoading]=useState(false);
     const restaurant=async()=>{
+        setLoading(true);
         try{
             const rest_data=await axios.get("http://localhost:3000/app/v1/restaurant/usergetrestaurantreviews",
                 {headers:{
@@ -18,16 +20,18 @@ export default function Restaurant() {
 
         }catch(error){
             setStatus(error instanceof Error ? error.message : String(error));
+        }finally{
+            setLoading(false);
         }
        
     }
     return (
         <>
         <div>Restaurant {status}</div>
-        <button onClick={restaurant}>Get restaurant</button>
-        <div>
-            <p>here:{rest}</p>
-        </div>
+        {loading ? <div>Loading...</div> : <button className='bg-blue-300 p-2 rounded cursor-pointer ' onClick={restaurant}>Get restaurant</button>}
+         <div>
+            <p>here are restaurants:{rest}</p>
+         </div>
         </>
         
     )
