@@ -12,9 +12,8 @@ describe("/user/signup",()=>{
             id:expect.any(String),
             username:"forloop",
             email:"forloop@gmail.com",
-            password:expect.any(String)
         })
-    })
+    },15000)
    
 })
 

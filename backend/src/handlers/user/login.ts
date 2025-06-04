@@ -10,13 +10,14 @@ export const login = async(req, res) => {
        })
        if (!user){
           res.send("user not found");
+          return;
        }
        const verify=await comparePasswords(password,user.password);
        if(!verify){
-        res.send({
-            message:"Sorry worng password Try again!",
-           
-        })
+         res.send({
+            message:"Sorry worng password Try again!",    
+        });
+        return;
        }
        else{
         const token=await createJWT(user);
@@ -29,6 +30,7 @@ export const login = async(req, res) => {
             },
             token
        })
+       return;
        }
      }catch(error){
         res.status(404).send({

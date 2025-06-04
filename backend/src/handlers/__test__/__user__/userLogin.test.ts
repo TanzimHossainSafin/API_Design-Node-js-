@@ -12,7 +12,6 @@ describe('/user/signin',()=>{
          id:expect.any(String),
          username:"forloop",
          email:"forloop@gmail.com",
-         password:expect.any(String)
        })
        expect(result.data.token).toEqual(expect.any(String));
     });

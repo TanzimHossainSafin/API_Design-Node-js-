@@ -1,8 +1,7 @@
 import prisma from "../../../db";
 //create restaurant
-
 export const createrestaurant=async(req,res)=>{
-    try{
+   try{
    const {name,location}=req.body;
    const restaurant=await prisma.restaurant.create({
     data:{
@@ -16,9 +15,9 @@ export const createrestaurant=async(req,res)=>{
     }
    });
    res.json({message:"restaurant created successfully",restaurant});
-}catch(error){
+  }catch(error){
     res.json({message:"restaurant not created",error});
-}
+  }
 }
 //get restaurant by user id
 export const getrestaurant=async(req,res)=>{
