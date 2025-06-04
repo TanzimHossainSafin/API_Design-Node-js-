@@ -22,7 +22,11 @@ export const login = async(req, res) => {
         const token=await createJWT(user);
         res.status(200).json({
             message:"User logedin successfully",
-            user,
+            user:{
+                id:user.id,
+                username:user.username,
+                email:user.email
+            },
             token
        })
        }
