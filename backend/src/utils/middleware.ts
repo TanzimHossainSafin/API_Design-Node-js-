@@ -1,4 +1,4 @@
-import {body,validationResult} from 'express-validator';
+import {body,query,validationResult} from 'express-validator';
 
 export const signupMiddleware = [
     body("username").isString().exists(),
@@ -10,7 +10,7 @@ export const loginMiddleware = [
     body("password").isString().exists()
 ];
 export const getuserMiddleware=[
-    body("email").isString().exists(),
+    query("email").isString().exists(),
 ];
 export const deleteMiddleware=[
     body("email").isString().exists(),
