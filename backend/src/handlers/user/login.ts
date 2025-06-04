@@ -20,7 +20,7 @@ export const login = async(req, res) => {
        }
        else{
         const token=await createJWT(user);
-        res.status(201).json({
+        res.status(200).json({
             message:"User logedin successfully",
             user,
             token

@@ -10,7 +10,7 @@ export const signup = async(req, res) => {
                password:await bcrypt.hash(password,10)
           }
      }) 
-     res.status(201).json({
+     res.status(200).json({
           message:"User created successfully",
           user
      })

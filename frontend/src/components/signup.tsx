@@ -50,7 +50,7 @@ export default function Signup() {
                             <label className="block text-gray-700 font-semibold mb-1">Password</label>
                             <input type="password" ref={passwordRef} placeholder="Password" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
                         </div>
-                        <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg transition">Sign up</button>
+                        <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg transition cursor-pointer">Sign up</button>
                     </form>
                    <div className="mt-4 text-sm text-gray-500">
                         Already have an account? <a href="/login" className="text-blue-500 hover:underline">Login</a>
