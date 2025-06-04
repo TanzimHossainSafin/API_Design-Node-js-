@@ -5,7 +5,6 @@ describe("/user/getuser",()=>{
         const result= await axios.get("http://localhost:3000/app/v1/api/user/getuser", {
             params: { email: "forloop@gmail.com" }
           });
-        console.log(result.data); 
         expect(result.status).toBe(200);
         expect(result.data.user).toMatchObject({
             id:expect.any(String),
