@@ -49,3 +49,15 @@ export const getallrestaurants = async (req, res) => {
     res.json({message:"restaurant not fetched",error});
 }
 }
+//delete restaurant
+export const deleterestaurant=async(req,res)=>{
+    try{
+    const {id}=req.params;
+    const restaurant=await prisma.restaurant.delete({
+        where:{id}
+    });
+    res.json({message:"restaurant deleted successfully",restaurant});
+}catch(error){
+    res.json({message:"restaurant not deleted",error});
+}
+}
