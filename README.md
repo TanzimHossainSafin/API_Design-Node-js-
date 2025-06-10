@@ -1,4 +1,4 @@
-# API_Design-Node-js-
+# API_Design-Node-js
 
 A full-stack project demonstrating best practices in API design, featuring a Node.js/TypeScript backend and a modern frontend built with Vite and TypeScript.
 
